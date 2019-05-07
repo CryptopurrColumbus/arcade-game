@@ -64,7 +64,7 @@ var player = {
         }
     },
     update: function(dt) {
-        console.log(this.x, this.y)
+        // noop
     }
 }
 
@@ -88,7 +88,7 @@ function getRandomEnemyProperties() {
 
 // Our array of enemy objects
 allEnemies = [];
-for (var i = 0; i <= 5; i++) {
+for (var i = 0; i <= 2; i++) {
     var properties = getRandomEnemyProperties();
     var enemy_x = properties.x;
     var enemy_y = properties.y;

@@ -80,7 +80,22 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
+        checkCollisions();
+    }
+
+    /* Thanks to: https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+    */
+    function checkCollisions() {
+        allEnemies.forEach(function(enemy) {
+            var Colliding = (
+                (enemy.x < player.x + 50) &&
+                (enemy.x + 70 > player.x) &&
+                (enemy.y < player.y + 50) &&
+                (enemy.y + 50 > player.y))
+            if (Colliding) {
+                reset();
+            }
+        })
     }
 
     /* This is called by the update function and loops through all of the
@@ -163,6 +178,8 @@ var Engine = (function(global) {
      */
     function reset() {
         // noop
+        player.x = 205;
+        player.y = 400;
     }
 
     /* Go ahead and load all of the images we know we're going to need to
